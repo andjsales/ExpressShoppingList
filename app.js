@@ -1,10 +1,14 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const ExpressError = require("./expressError");
 const items = require("./fakeDb");
 
 app.use(express.json());
-// app.use("./fakeDb", items);
+
+// Serve static files from the 'public' directory
+// This allows you to serve HTML, CSS, JS, and other static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // render a list of shopping items
 app.get('/items', (req, res) => {
@@ -42,6 +46,13 @@ app.delete('/items/:name', (req, res) => {
         res.status(404).send("Item not found");
     }
 });
+
+// Handle root route
+// This serves the index.html file when the root URL ("/") is accessed
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 app.use(function (req, res, next) {
     const err = new ExpressError("Not Found", 404);
