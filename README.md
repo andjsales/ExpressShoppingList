@@ -16,6 +16,9 @@ Technologies used: Node.js, Express, JavaScript
 ### Setup
 
 1. `npm install`
+2. `npm start`
+
+### API Endpoints
 
 ##### GET /items 
 
@@ -41,3 +44,7 @@ Technologies used: Node.js, Express, JavaScript
 
 - this route should allow you to delete a specific item from the array
 - {message: “Deleted”}
+
+### Error Handling
+
+Implemented using a custom ExpressError class
