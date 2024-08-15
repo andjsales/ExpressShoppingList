@@ -15,7 +15,7 @@ Technologies used: Node.js, Express, JavaScript
 
 ### Setup
 
-1. 'npm install'
+1. `npm install`
 
 ##### GET /items 
 
